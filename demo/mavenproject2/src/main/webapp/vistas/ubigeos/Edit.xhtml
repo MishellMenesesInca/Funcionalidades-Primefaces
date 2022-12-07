@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UbigeosEditDlg" widgetVar="UbigeosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.EditUbigeosTitle}">
+            <h:form id="UbigeosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ubigeosController.selected != null}">
+                        <p:outputLabel value="#{vistas.EditUbigeosLabel_codubi}" for="codubi" />
+                        <p:inputText id="codubi" value="#{ubigeosController.selected.codubi}" title="#{vistas.EditUbigeosTitle_codubi}" required="true" requiredMessage="#{vistas.EditUbigeosRequiredMessage_codubi}"/>
+                        <p:outputLabel value="#{vistas.EditUbigeosLabel_depubi}" for="depubi" />
+                        <p:inputText id="depubi" value="#{ubigeosController.selected.depubi}" title="#{vistas.EditUbigeosTitle_depubi}" required="true" requiredMessage="#{vistas.EditUbigeosRequiredMessage_depubi}"/>
+                        <p:outputLabel value="#{vistas.EditUbigeosLabel_provubi}" for="provubi" />
+                        <p:inputText id="provubi" value="#{ubigeosController.selected.provubi}" title="#{vistas.EditUbigeosTitle_provubi}" required="true" requiredMessage="#{vistas.EditUbigeosRequiredMessage_provubi}"/>
+                        <p:outputLabel value="#{vistas.EditUbigeosLabel_distubi}" for="distubi" />
+                        <p:inputText id="distubi" value="#{ubigeosController.selected.distubi}" title="#{vistas.EditUbigeosTitle_distubi}" required="true" requiredMessage="#{vistas.EditUbigeosRequiredMessage_distubi}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ubigeosController.update}" value="#{vistas.Save}" update="display,:UbigeosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UbigeosEditDialog');"/>
+                    <p:commandButton value="#{vistas.Cancel}" onclick="UbigeosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

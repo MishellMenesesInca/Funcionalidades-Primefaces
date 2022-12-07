@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UbigeosCreateDlg" widgetVar="UbigeosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.CreateUbigeosTitle}">
+            <h:form id="UbigeosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ubigeosController.selected != null}">
+                        <p:outputLabel value="#{vistas.CreateUbigeosLabel_codubi}" for="codubi" />
+                        <p:inputText id="codubi" value="#{ubigeosController.selected.codubi}" title="#{vistas.CreateUbigeosTitle_codubi}" required="true" requiredMessage="#{vistas.CreateUbigeosRequiredMessage_codubi}"/>
+                        <p:outputLabel value="#{vistas.CreateUbigeosLabel_depubi}" for="depubi" />
+                        <p:inputText id="depubi" value="#{ubigeosController.selected.depubi}" title="#{vistas.CreateUbigeosTitle_depubi}" required="true" requiredMessage="#{vistas.CreateUbigeosRequiredMessage_depubi}"/>
+                        <p:outputLabel value="#{vistas.CreateUbigeosLabel_provubi}" for="provubi" />
+                        <p:inputText id="provubi" value="#{ubigeosController.selected.provubi}" title="#{vistas.CreateUbigeosTitle_provubi}" required="true" requiredMessage="#{vistas.CreateUbigeosRequiredMessage_provubi}"/>
+                        <p:outputLabel value="#{vistas.CreateUbigeosLabel_distubi}" for="distubi" />
+                        <p:inputText id="distubi" value="#{ubigeosController.selected.distubi}" title="#{vistas.CreateUbigeosTitle_distubi}" required="true" requiredMessage="#{vistas.CreateUbigeosRequiredMessage_distubi}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ubigeosController.create}" value="#{vistas.Save}" update="display,:UbigeosListForm:datalist,:growl" oncomplete="handleSubmit(args,'UbigeosCreateDialog');"/>
+                    <p:commandButton value="#{vistas.Cancel}" onclick="UbigeosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

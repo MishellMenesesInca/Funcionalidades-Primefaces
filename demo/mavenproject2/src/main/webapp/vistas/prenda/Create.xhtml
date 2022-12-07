@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrendaCreateDlg" widgetVar="PrendaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.CreatePrendaTitle}">
+            <h:form id="PrendaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prendaController.selected != null}">
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_idpre}" for="idpre" />
+                        <p:inputText id="idpre" value="#{prendaController.selected.idpre}" title="#{vistas.CreatePrendaTitle_idpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_idpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_tippre}" for="tippre" />
+                        <p:inputText id="tippre" value="#{prendaController.selected.tippre}" title="#{vistas.CreatePrendaTitle_tippre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_tippre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_nompre}" for="nompre" />
+                        <p:inputText id="nompre" value="#{prendaController.selected.nompre}" title="#{vistas.CreatePrendaTitle_nompre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_nompre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_prepre}" for="prepre" />
+                        <p:inputText id="prepre" value="#{prendaController.selected.prepre}" title="#{vistas.CreatePrendaTitle_prepre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_prepre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_talpre}" for="talpre" />
+                        <p:inputText id="talpre" value="#{prendaController.selected.talpre}" title="#{vistas.CreatePrendaTitle_talpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_talpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_colpre}" for="colpre" />
+                        <p:inputText id="colpre" value="#{prendaController.selected.colpre}" title="#{vistas.CreatePrendaTitle_colpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_colpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_marpre}" for="marpre" />
+                        <p:inputText id="marpre" value="#{prendaController.selected.marpre}" title="#{vistas.CreatePrendaTitle_marpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_marpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_despre}" for="despre" />
+                        <p:inputText id="despre" value="#{prendaController.selected.despre}" title="#{vistas.CreatePrendaTitle_despre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_despre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_estpre}" for="estpre" />
+                        <p:inputText id="estpre" value="#{prendaController.selected.estpre}" title="#{vistas.CreatePrendaTitle_estpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_estpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_stockpre}" for="stockpre" />
+                        <p:inputText id="stockpre" value="#{prendaController.selected.stockpre}" title="#{vistas.CreatePrendaTitle_stockpre}" required="true" requiredMessage="#{vistas.CreatePrendaRequiredMessage_stockpre}"/>
+                        <p:outputLabel value="#{vistas.CreatePrendaLabel_idprov}" for="idprov" />
+                        <p:selectOneMenu id="idprov" value="#{prendaController.selected.idprov}" required="true" requiredMessage="#{vistas.EditPrendaRequiredMessage_idprov}">
+                            <f:selectItems value="#{proveedorController.itemsAvailableSelectOne}"
+                                           var="idprovItem"
+                                           itemValue="#{idprovItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{prendaController.create}" value="#{vistas.Save}" update="display,:PrendaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PrendaCreateDialog');"/>
+                    <p:commandButton value="#{vistas.Cancel}" onclick="PrendaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

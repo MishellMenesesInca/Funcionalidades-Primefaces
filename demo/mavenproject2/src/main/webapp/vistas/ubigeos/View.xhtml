@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UbigeosViewDlg" widgetVar="UbigeosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.ViewUbigeosTitle}">
+            <h:form id="UbigeosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ubigeosController.selected != null}">
+                        <h:outputText value="#{vistas.ViewUbigeosLabel_codubi}"/>
+                        <h:outputText value="#{ubigeosController.selected.codubi}" title="#{vistas.ViewUbigeosTitle_codubi}"/>
+                        <h:outputText value="#{vistas.ViewUbigeosLabel_depubi}"/>
+                        <h:outputText value="#{ubigeosController.selected.depubi}" title="#{vistas.ViewUbigeosTitle_depubi}"/>
+                        <h:outputText value="#{vistas.ViewUbigeosLabel_provubi}"/>
+                        <h:outputText value="#{ubigeosController.selected.provubi}" title="#{vistas.ViewUbigeosTitle_provubi}"/>
+                        <h:outputText value="#{vistas.ViewUbigeosLabel_distubi}"/>
+                        <h:outputText value="#{ubigeosController.selected.distubi}" title="#{vistas.ViewUbigeosTitle_distubi}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{vistas.Close}" onclick="UbigeosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrendaViewDlg" widgetVar="PrendaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.ViewPrendaTitle}">
+            <h:form id="PrendaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prendaController.selected != null}">
+                        <h:outputText value="#{vistas.ViewPrendaLabel_idpre}"/>
+                        <h:outputText value="#{prendaController.selected.idpre}" title="#{vistas.ViewPrendaTitle_idpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_tippre}"/>
+                        <h:outputText value="#{prendaController.selected.tippre}" title="#{vistas.ViewPrendaTitle_tippre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_nompre}"/>
+                        <h:outputText value="#{prendaController.selected.nompre}" title="#{vistas.ViewPrendaTitle_nompre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_prepre}"/>
+                        <h:outputText value="#{prendaController.selected.prepre}" title="#{vistas.ViewPrendaTitle_prepre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_talpre}"/>
+                        <h:outputText value="#{prendaController.selected.talpre}" title="#{vistas.ViewPrendaTitle_talpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_colpre}"/>
+                        <h:outputText value="#{prendaController.selected.colpre}" title="#{vistas.ViewPrendaTitle_colpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_marpre}"/>
+                        <h:outputText value="#{prendaController.selected.marpre}" title="#{vistas.ViewPrendaTitle_marpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_despre}"/>
+                        <h:outputText value="#{prendaController.selected.despre}" title="#{vistas.ViewPrendaTitle_despre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_estpre}"/>
+                        <h:outputText value="#{prendaController.selected.estpre}" title="#{vistas.ViewPrendaTitle_estpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_stockpre}"/>
+                        <h:outputText value="#{prendaController.selected.stockpre}" title="#{vistas.ViewPrendaTitle_stockpre}"/>
+                        <h:outputText value="#{vistas.ViewPrendaLabel_idprov}"/>
+                        <h:outputText value="#{prendaController.selected.idprov}" title="#{vistas.ViewPrendaTitle_idprov}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{vistas.Close}" onclick="PrendaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProveedorCreateDlg" widgetVar="ProveedorCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{vistas.CreateProveedorTitle}">
+            <h:form id="ProveedorCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proveedorController.selected != null}">
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_idprov}" for="idprov" />
+                        <p:inputText id="idprov" value="#{proveedorController.selected.idprov}" title="#{vistas.CreateProveedorTitle_idprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_idprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_razsocprov}" for="razsocprov" />
+                        <p:inputText id="razsocprov" value="#{proveedorController.selected.razsocprov}" title="#{vistas.CreateProveedorTitle_razsocprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_razsocprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_rucprov}" for="rucprov" />
+                        <p:inputText id="rucprov" value="#{proveedorController.selected.rucprov}" title="#{vistas.CreateProveedorTitle_rucprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_rucprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_emaprov}" for="emaprov" />
+                        <p:inputText id="emaprov" value="#{proveedorController.selected.emaprov}" title="#{vistas.CreateProveedorTitle_emaprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_emaprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_dirprov}" for="dirprov" />
+                        <p:inputText id="dirprov" value="#{proveedorController.selected.dirprov}" title="#{vistas.CreateProveedorTitle_dirprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_dirprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_tipprov}" for="tipprov" />
+                        <p:inputText id="tipprov" value="#{proveedorController.selected.tipprov}" title="#{vistas.CreateProveedorTitle_tipprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_tipprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_estprov}" for="estprov" />
+                        <p:inputText id="estprov" value="#{proveedorController.selected.estprov}" title="#{vistas.CreateProveedorTitle_estprov}" />
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_celprov}" for="celprov" />
+                        <p:inputText id="celprov" value="#{proveedorController.selected.celprov}" title="#{vistas.CreateProveedorTitle_celprov}" required="true" requiredMessage="#{vistas.CreateProveedorRequiredMessage_celprov}"/>
+                        <p:outputLabel value="#{vistas.CreateProveedorLabel_codubi}" for="codubi" />
+                        <p:selectOneMenu id="codubi" value="#{proveedorController.selected.codubi}" required="true" requiredMessage="#{vistas.EditProveedorRequiredMessage_codubi}">
+                            <f:selectItems value="#{ubigeoController.itemsAvailableSelectOne}"
+                                           var="codubiItem"
+                                           itemValue="#{codubiItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proveedorController.create}" value="#{vistas.Save}" update="display,:ProveedorListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProveedorCreateDialog');"/>
+                    <p:commandButton value="#{vistas.Cancel}" onclick="ProveedorCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
